@@ -1,0 +1,12 @@
+value1= int(input("enter any number"))
+try:
+    x= 10/value1
+    y= x+v
+except ZeroDivisionError:
+    print ("division by zero is not possible")
+except NameError:
+    print ("some values are undefined")
+except TypeError:
+    print ("some mismatch of operational values occured")
+except:
+    print ("some error occured")
