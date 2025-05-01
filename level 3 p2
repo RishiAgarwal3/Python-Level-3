@@ -1,0 +1,20 @@
+#finding percentage of a student in 3 subjects
+def percentage(m,s,e,t=300):
+    try:
+        p= 100*(m+s+e)/t
+        return p
+#handling an error if value entered is 0
+    except ZeroDivisionError:
+        print ("division by zero is not permissable")
+#handling an error when value is given in wrong format
+    except TypeError:
+        print ("please enter the value in the required format")
+#handling errors where undefined variables are used
+    except NameError:
+        print ("variable with which operation is linked does not exist")
+m=int(input("enter marks in maths \n"))
+s=int(input("enter marks in science \n"))
+e=int(input("enter marks in english \n"))
+mm=int(input("enter maximum marks in each subject"))
+t=3*mm
+print (percentage(m,s,e,t))
