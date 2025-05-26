@@ -1,0 +1,80 @@
+import turtle
+t= turtle.Turtle()
+s= turtle.Screen()
+s.bgcolor("black")
+t.pensize(5)
+t.speed(0)
+s.title("Drawing Board")
+s.setup(width = 700,height=600)
+t.penup()
+t.goto(0,250)
+t.pendown()
+t.color("white")
+t.write("draw square = (s), draw circle (c) change background to green (b) enlarge screen (l), original size (r) , increase pen size (p) , decrease pen size (d) penup (u) pendown(q)",align = "center", font = ("Arial",12,"bold"))
+def square():
+    t.penup()
+    t.goto(0,0)
+    t.pendown()
+    t.left(90)
+    t.forward(15)
+    t.left(90)
+    t.forward(15)
+    t.left(90)
+    t.forward(15)
+    t.left(90)
+    t.forward(15)
+def circle():
+    t.circle(20)
+def Bgcolor():
+    s.bgcolor("lawngreen")
+def screenb():
+    s.setup(width = 1000,height=1000)
+def screens():
+    s.setup(width = 700,height=600)
+def pup():
+    t.pensize(10)
+def pdown():
+    t.pensize(5)
+def Penup():
+    t.penup()
+def Pendown():
+    t.pendown()
+def down():
+    t.setheading(270)
+    t.forward(10)
+def up():
+    t.setheading(90)
+    t.forward(10)
+def right():
+    t.setheading(0)
+    t.forward(10)
+def left():
+    t.setheading(180)
+    t.forward(10)
+def clear1():
+    t.clear()
+    t.penup()
+    t.goto(0,250)
+    t.pendown()
+    t.write("draw square = (s), draw circle (c) change background to green (b) enlarge screen (l), original size (r) , increase pen size (p) , decrease pen size (d) penup (u) pendown(q)",align = "center", font = ("Arial",12,"bold"))
+    t.penup()
+    t.goto(0,0)
+    t.pendown()
+s.listen()
+s.onkey(square,"s")
+s.onkey(circle,"c")
+s.onkey(Bgcolor,"b")
+s.onkey(screenb,"l")
+s.onkey(screens,"r")
+s.onkey(pup,"p")
+s.onkey(pdown,"d")
+s.onkey(Penup,"u")
+s.onkey(Pendown,"q")
+s.onkey(down,"Down")
+s.onkey(up,"Up")
+s.onkey(left,"Left")
+s.onkey(right,"Right")
+s.onkey(clear1,"w")
+s.mainloop()
+
+            
