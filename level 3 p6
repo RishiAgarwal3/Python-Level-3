@@ -1,3 +1,5 @@
+#Making a rainbow
+
 import turtle
 t= turtle.Turtle()
 s= turtle.Screen()
