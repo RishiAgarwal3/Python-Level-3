@@ -1,0 +1,12 @@
+f = open("Python.txt","w")
+for i in range (1,41):
+    f.write (str(i))
+    f.write("\n")
+f.close()
+
+f = open("Python.txt","r")
+lst= f.readlines()
+for i in lst:
+    if int(i)%4 == 0:
+        print(i)
+f.close()
