@@ -1,0 +1,23 @@
+def returnDay(a):
+    if a==1:
+        return("monday")
+    elif a==2:
+        return("tuesday")
+    elif a==3:
+        return("wednesday")
+    elif a==4:
+        return("thursday")
+    elif a==5:
+        return("friday")
+    elif a==6:
+        return("saturday")
+    elif a==7:
+        return("sunday")
+x=int(input("enter any number from 1 to 7 : \n"))
+print (returnDay(x))
+
+def returnDay2(a):
+    lst = ["monday","tuesday","wednesday",'thursday','friday','saturday','sunday']
+    day= lst[a-1]
+    return day
+print (returnDay2(x))
