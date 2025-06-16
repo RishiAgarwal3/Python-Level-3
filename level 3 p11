@@ -1,0 +1,20 @@
+import time
+def areaofrectangle(x,y):
+    area = l*b
+    return area
+l = int(input("enter the length of the rectangle: \n"))
+b = int(input("enter the breadth of the rectangle: \n"))
+time.sleep(2)
+print ("the area is: \n",areaofrectangle(l,b))
+def surfaceareaofcuboid(a,b,c):
+    surface_area = 2*(areaofrectangle(l,b)+areaofrectangle(l,w)+areaofrectangle(b,w))
+    return surface_area
+choice = input("do you want to calculate the surface area of a cuboid : \n")
+if choice == "yes":
+    print ("for that you need to enter the width of the cuboid")
+    time.sleep(2)
+    w = int(input("enter the width of the cuboid: \n"))
+    time.sleep(2)
+    print ("the surface area is: \n",surfaceareaofcuboid(l,b,w))
+else:
+    print ("bye")
