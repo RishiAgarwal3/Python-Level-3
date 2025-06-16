@@ -1,0 +1,13 @@
+def add(a,b):
+    try:
+        sum1 = a+b
+        return sum1
+    except TypeError:
+        print("please enter the value in the required data type")
+
+x = int(input("enter the first number: \n"))
+y = int(input("enter the second number: \n"))
+
+print (add(x,y))
+print (add("x","y"))
+print (add("x",y))
