@@ -1,0 +1,18 @@
+x = input("enter the name of the file you want to create: \n")
+y = input("enter the content you want in the file: \n")
+f = open (x,"a")
+f.write(y)
+f.close()
+f = open (x,"r")
+data = f.read()
+f.close()
+print (data)
+
+lst =data.split(" ")
+print (lst)
+print ("no of words is : \n",len(lst))
+
+choice = input("which words occurence you want to count")
+
+print (lst.count(choice))
+
