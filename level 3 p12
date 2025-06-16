@@ -1,4 +1,3 @@
-#
 
 def returnDay(a):
     if a==1:
