@@ -1,0 +1,16 @@
+#Find the sum of the series upto n terms
+#Write a program to calculate the sum of series up to n term. 
+#For example, if n =5 the series will become 2 + 22 + 222 + 2222 + 22222 = 24690
+def calculate_sum(n):
+    term = 2
+    series_sum = 0
+
+    for i in range(n):
+        series_sum += term
+        term = term * 10 + 2
+
+    return series_sum
+
+n = int(input("Enter the value of n: "))
+result = calculate_sum(n)
+print("The sum of the series up to", n, "terms is:", result)
