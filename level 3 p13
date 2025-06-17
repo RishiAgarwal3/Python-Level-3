@@ -1,0 +1,21 @@
+import time
+lst= []
+n=int(input("Enter the number of elements you want in the list: \n"))
+print ("")
+time.sleep(2)
+for i in range (n):
+    c = int(input("Enter the element you want in the list: \n"))
+    lst.append(c)
+print ("your list right now is: \n",lst)
+print ("")
+print ("")
+print ("")
+time.sleep(3)
+a= int(input("Enter the element you want to insert in the list: \n"))
+b= int(input("Enter at which index do you want the element: \n"))
+def List_inserting (x,y):
+    lst.insert(y,x)
+    return(lst)
+print (List_inserting(a,b))
+    
+     
