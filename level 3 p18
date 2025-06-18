@@ -1,0 +1,27 @@
+message = "my name is {}"
+#format function can work with numbers as well as strings, it can take any number of arguements
+print (message.format("Rishi"))
+age = 14
+name = "Rishi"
+print ("my age is {}".format(age))
+print (message.format("Rishi"), "my age is {}".format(age))
+weight = 65.4567
+#f converts a number into fixed point number
+message = "my name is {} my age is {} i am {:.2f}kg's "
+print (message.format("Rishi",age,weight))
+score = .85
+print ("i scored {: %}.".format(score))
+print ("i scored {: .2%}".format (score))
+print ("i scored {: .0%}".format (score))
+#creating a f string
+print (f"my name is {name}. i am {age}years old. my weight is {weight}")
+amount = 30
+price = 38.96
+print (f"total = {amount*price:,.0f} ")
+print (f"total = {amount*price:,.2%} ")
+print ("i like to eat \npizza \nburger")
+#using %s for printing
+print ("my name is %s and i am %s years old"%(name,age))
+print ("hello ", "i ", "love", "coding",sep="*",end = "&" )
+print ("pyhton")
+print ("and i am learning it")
