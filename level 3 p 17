@@ -1,0 +1,15 @@
+def speed(a,b):
+    try:
+        s = a/b
+        return s
+
+    except ZeroDivisionError:
+        print ("division by zero is not possible,")
+        
+try:
+    d = int(input("enter the distance between the earths surface whre the rocket is, and the orbit: \n"))
+    t = int(input("enetr the time taken for the rocket to reach the orbit: \n"))
+except ValueError:
+    print("please ebter the value in the required format")
+
+print ("the speed of the rocket is: \n", speed(d,t))
