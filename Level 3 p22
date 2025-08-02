@@ -1,0 +1,135 @@
+import turtle
+import time
+import random
+delay= 0.1
+f = open("score.txt","r")
+hscore= f.read()
+high_score= int(hscore)
+f.close()
+score1=0
+#setup screen
+s= turtle.Screen()
+s.title("Slither.io")
+s.setup(width = 600, height = 600)
+s.bgcolor("cyan")
+#setup snake
+snake = turtle.Turtle()
+snake.shape("circle")
+snake.color("green4")
+snake.speed(0)
+snake.penup()
+snake.goto(0,0)
+snake.direction="stop"
+#setup food
+food = turtle.Turtle()
+food.shape("circle")
+food.color("OrangeRed")
+food.penup()
+food.goto(50,50)
+#setup writing pen
+pen = turtle.Turtle()
+pen.color("Black")
+pen.speed(0)
+pen.penup()
+pen.goto(0,260)
+pen.pendown()
+pen.write("Score : 0                            High Score : 0",align="center",font = ("Japanese", 20,"bold"))
+pen.hideturtle()
+#movement of snake
+def move():
+    if snake.direction=="up":
+        y =snake.ycor()
+        snake.sety(y+10)
+    if snake.direction=="down":
+        y =snake.ycor()
+        snake.sety(y-10)
+    if snake.direction =="right":
+        x = snake.xcor()
+        snake.setx(x+10)
+    if snake.direction =="left":
+        x = snake.xcor()
+        snake.setx(x-10)
+#direction of snake
+def go_up():
+    if snake.direction != "down":
+        snake.direction = "up"
+def go_down():
+    if snake.direction != "up":
+        snake.direction= "down"
+def go_right():
+    if snake.direction != "left":
+        snake.direction = "right"
+def go_left():
+    if snake.direction != "right":
+        snake.direction = "left"
+#keybinds
+s.listen()
+s.onkeypress(go_up,"Up")
+s.onkeypress(go_down,"Down")
+s.onkeypress(go_left,"Left")
+s.onkeypress(go_right,"Right")
+lst = []
+def penalty(high_sore):
+    global score1
+    for i in lst:
+        i.goto(1000,1000)
+    lst.clear()
+    score1= 0
+    pen.clear()
+    pen.write("Score : {}                            High Score : {}".format(score1,high_score),align="center",font = ("Japanese", 20,"bold"))
+while True:
+    s.update()
+    if snake.xcor()>290:
+        y = snake.ycor()
+        snake.goto(-290,y)
+        snake.direction="stop"
+        penalty(high_score)
+    elif snake.xcor()<-290:
+        y = snake.ycor()
+        snake.goto(290,y)
+        snake.direction="stop"
+        penalty(high_score)
+    elif snake.ycor()>290:
+        x = snake.xcor()
+        snake.goto(x,-290)
+        snake.direction="stop"
+        penalty(high_score)
+    elif snake.ycor()<-290:
+        x = snake.xcor()
+        snake.goto(x,290)
+        snake.direction="stop"
+        penalty(high_score)
+#this is about snake eating the food
+    if snake.distance(food)<20:
+        x=random.randint(-290,290)
+        y=random.randint(-290,290)
+        food.goto(x,y)
+        score1 +=1
+        if high_score<score1:
+            high_score=score1
+            f=open("score.txt","w")
+            h_score=str(high_score)
+            f.write(h_score)
+            f.close()
+        delay -= .01
+        pen.clear()
+        pen.write("Score : {}                            High Score : {}".format(score1,high_score),align="center",font = ("Japanese", 20,"bold"))
+        body = turtle.Turtle()
+        body.shape("circle")
+        body.color("green4")
+        body.speed(0)
+        body.penup()
+        lst.append(body)
+    for i in range (len(lst)-1,0,-1):
+        x = lst [i-1].xcor()
+        y = lst [i-1].ycor()
+        lst[i].goto(x,y)
+    if len(lst)>0:
+        x = snake.xcor()
+        y = snake.ycor()
+        lst[0].goto(x,y)
+        
+
+    move()
+    time.sleep(delay)
+s.mainloop()
