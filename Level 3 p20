@@ -1,0 +1,65 @@
+import turtle
+t= turtle.Turtle()
+s= turtle.Screen()
+s.bgcolor("black")
+t.shape("circle")
+t.pensize(5)
+t.speed(0)
+t.penup()
+s.title("Drawing Board")
+s.setup(width = 600,height=600)
+t.goto(0,250)
+t.pendown()
+t.color("white")
+t.write("red = (a), blue = (b), yellow = (y), orange = (o), penup = (u), penDown = (d), clear screen(c)",align = "center", font = ("Arial",12,"bold"))
+
+def red():
+    t.color("red")
+def blue():
+    t.color("blue")
+def yellow():
+    t.color("yellow")
+def orange():
+    t.color("orange")
+def pen_up():
+    t.penup()
+def pen_down():
+    t.pendown()
+def clear_screen():
+    t.clear()
+    t.penup()
+    t.goto(0,250)
+    t.pendown()
+    t.write("red = (a), blue = (b), yellow = (y), orange = (o), penup = (u), penDown = (d), clear screen(c)",align = "center", font = ("Arial",12,"bold"))
+def up():
+    t.setheading(90)
+    t.forward(10)
+def right():
+    t.setheading(0)
+    t.forward(10)
+def left():
+    t.setheading(180)
+    t.forward(10)
+def down():
+    t.setheading(270)
+    t.forward(10)
+def Drag(x,y):
+    t.ondrag(None)
+    t.setheading(t.towards(x,y))
+    t.goto(x,y)
+    t.ondrag(Drag)
+
+s.listen()
+t.ondrag(Drag)
+s.onkey(clear_screen,"c")
+s.onkey(red,"a")
+s.onkey(blue,"b")
+s.onkey(yellow,"y")
+s.onkey(orange,"o")
+s.onkey(pen_up,"u")
+s.onkey(pen_down,"d")
+s.onkey(right,"Right")
+s.onkey(down,"Down")
+s.onkey(up,"Up")
+s.onkey(left,"Left")
+s.mainloop()
