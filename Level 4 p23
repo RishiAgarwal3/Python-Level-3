@@ -1,0 +1,47 @@
+import turtle
+t = turtle.Turtle()
+s = turtle.Screen()
+s.bgcolor("#00FFFF")
+t.width(4)
+s.setup(width = 600, height = 600)
+t.color("white","black")
+t.begin_fill()
+t.forward(100)
+t.left(90)
+t.forward(200)
+t.circle(50,180)
+t.forward(200)
+t.end_fill()
+t.setheading(0)
+t.forward(50)
+t.width(10)
+t.setheading(270)
+t.forward(200)
+t.width(4)
+t.penup()
+t.goto(50,50)
+t.shape("circle")
+t.shapesize(3)
+t.setheading(90)
+t.color("#7FFF00")
+state = 0
+def traffic_light():
+    global state
+    if state ==0:
+        t.forward(60)
+        t.fillcolor("#FF9912")
+        state = 1
+        s.ontimer(traffic_light,2000)
+    elif state ==1:
+        t.forward(60)
+        t.fillcolor("firebrick1")
+        state = 2
+        s.ontimer(traffic_light,2000)
+    else:
+        t.backward(120)
+        t.fillcolor("#7FFF00")
+        state = 0
+        s.ontimer(traffic_light,2000)
+s.listen()      
+traffic_light()
+s.mainloop()
