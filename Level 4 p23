@@ -1,3 +1,7 @@
+#its a nice program
+
+
+
 import turtle
 t = turtle.Turtle()
 s = turtle.Screen()
