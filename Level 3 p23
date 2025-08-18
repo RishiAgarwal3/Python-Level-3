@@ -1,4 +1,4 @@
-#my name 
+
 from itertools import combinations
 
 def is_prime(n):
